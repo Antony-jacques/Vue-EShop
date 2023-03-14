@@ -4,7 +4,6 @@
       <div class="left-menu">
         <router-link :to="{name:'HomePage'}">HomePage</router-link> |
         <router-link to="/about">AboutPage</router-link> |
-        <router-link to="/pagination">Pagination</router-link> |
         <router-link to="/users">Users</router-link> |
         <router-link to="/eshop/home">Shop</router-link> |
         <router-link to="/add-product">Add Product</router-link> |
