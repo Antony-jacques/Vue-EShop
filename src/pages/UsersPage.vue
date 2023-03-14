@@ -38,7 +38,7 @@
         return this.users
       },
     },
-    created() {
+    beforeMount() {
       this.$store.dispatch('loadUsers')
       console.log(this.users)
     }

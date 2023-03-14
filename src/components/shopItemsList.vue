@@ -24,7 +24,7 @@ import productItem from '@/modules/shop/components/productItem.vue'
         products: 'getFilteredProducts',
       })
     },
-    created(){
+    beforeMount(){
       console.log('products before fetch', this.products)
       if(this.products.length === 0){
         this.$store.dispatch('loadProducts')
