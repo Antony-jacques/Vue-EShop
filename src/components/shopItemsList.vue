@@ -9,22 +9,30 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import productItem from "@/modules/shop/components/productItem.vue";
+
 export default {
   data() {
     return {};
   },
+
   components: { productItem },
+
   computed: {
     ...mapGetters({
       products: "getFilteredProducts"
     })
   },
+
+  methods:{
+    ...mapActions(['loadProducts'])
+  },
+
   beforeMount() {
     console.log("products before fetch", this.products);
     if (this.products.length === 0) {
-      this.$store.dispatch("loadProducts");
+      this.loadProducts()
     }
     console.log("products after fetch", this.products);
   }

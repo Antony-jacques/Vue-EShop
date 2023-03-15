@@ -18,7 +18,7 @@
 </template>
 
 <script>
-  import {mapGetters} from "vuex";
+  import { mapGetters, mapActions} from "vuex";
   import addUserForm from '@/components/addUserForm.vue'
   import userItem from '@/components/userItem.vue'
 
@@ -28,7 +28,9 @@
         name: 'UsersPage',
       }
     },
+
     components: {addUserForm, userItem},
+
     computed: {
       ...mapGetters({
         users: "getUsers"
@@ -38,8 +40,13 @@
         return this.users
       },
     },
+
+    methods: {
+      ...mapActions(['loadUsers'])
+    },
+
     beforeMount() {
-      this.$store.dispatch('loadUsers')
+      this.loadUsers()
       console.log(this.users)
     }
   }
